@@ -1,4 +1,6 @@
 <?php
+
+   //Clase conexion
    class Conexion{
 
         protected $conexion_db;
