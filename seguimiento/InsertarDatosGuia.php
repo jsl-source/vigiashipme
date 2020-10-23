@@ -111,7 +111,7 @@
             $resulset->execute(array("s_guia"=>$nro_guia));
             $registro=$resulset->fetch(PDO::FETCH_ASSOC);
             $resulset->closeCursor(); 
-            return $registro
+            return $registro;
         }
 
         function ErrorSinGuia($nro_guia){
