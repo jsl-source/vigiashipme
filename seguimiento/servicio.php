@@ -58,26 +58,28 @@ class curlRequest{
 
                 if($this->arreglo[$key]['mensaje']=='OK'){
 
-                    switch($this->arreglo[$key]['ESTADO_RUTA' ]){
+                    switch($this->arreglo[$key]['ESTADO_RUTA']){
                         case 'E':
-                            $this->arreglo[$key]['ESTADO_RUTA' ]='ENTREGADO';
+                            $this->arreglo[$key]['ESTADO_RUTA']='ENTREGADO';
+                            
                         break;
                         case 'D':
-                            $this->arreglo[$key]['ESTADO_RUTA' ]='CON NOVEDAD';
+                            $this->arreglo[$key]['ESTADO_RUTA']='CON NOVEDAD';
+                            $this->arreglo[$key]['FECHA_REGISTRO']='';
                         break;
                         case 'A':
-                            $this->arreglo[$key]['ESTADO_RUTA' ]='EN REPARTO';
+                            $this->arreglo[$key]['ESTADO_RUTA']='EN REPARTO';
                         break;
                     }
-                    switch($this->arreglo[$key]['TMS_NOVEDADID' ]){
+                    switch($this->arreglo[$key]['TMS_NOVEDADID']){
                         case 1:
-                            $this->arreglo[$key]['TMS_NOVEDADID' ]='ENTREGA EXITOSA';
+                            $this->arreglo[$key]['TMS_NOVEDADID']='ENTREGA EXITOSA';
                         break;
                         case 2:
-                            $this->arreglo[$key]['TMS_NOVEDADID' ]='DIRECCION ERRADA/IMCOMPLETA';
+                            $this->arreglo[$key]['TMS_NOVEDADID']='DIRECCION ERRADA/IMCOMPLETA';
                         break;
                         case 3:
-                            $this->arreglo[$key]['TMS_NOVEDADID' ]='DESTINATARIO NO LOCALIZADO';
+                            $this->arreglo[$key]['TMS_NOVEDADID']='DESTINATARIO NO LOCALIZADO';
                         break;
                         case 4:
                             $this->arreglo[$key]['TMS_NOVEDADID' ]='RECHAZADO POR EL DESTINATARIO';
