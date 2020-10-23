@@ -109,7 +109,8 @@
             $consulta="select * from track where NRO_GUIA=:s_guia order by FECHA_ESTADO DESC";
             $resulset=$this->conexion_db->prepare($consulta);
             $resulset->execute(array("s_guia"=>$nro_guia));
-            $registro=$resulset->fetch(PDO::FETCH_ASSOC); 
+            $registro=$resulset->fetch(PDO::FETCH_ASSOC);
+            $resulset->closeCursor(); 
 
 
             return $registro;
@@ -123,6 +124,14 @@
             $registro=array("ID_CARGA"=>0,	"GENERADOR_CARGA"=>0,	"ORDEN"=>'',	"IDCLIENTE"=>'',	"NOMBRE"=>'',	"DIRECCION"=>'',	"BARRIO"=>'',	"CIUDAD"=>'',	"DEPARTAMENTO"=>'',	"CELULAR"=>'',	"PESO"=>'',	"VOLUMEN"=>'',	"OBSERVACION"=>'',	"FECHA_CARGA"=>'',	"USUARIO_CARGA"=>'',	"MARCA"=>0,	"NRO_GUIA"=>' '.$nro_guia. ' no existe. ',	"NRO_CARGA"=>0,	"MICRO_ZONA_ID"=>0,	"ZONA_TMS_ID"=>0,	"MACRO_ZONA_ID"=>0,	"RUTA"=>0,	"SECUENCIA"=>0,	"FECHA_ASIGNA_RUTA"=>'',	"USUARIO_ASIGNA_RUTA"=>'',	"NAME"=>'',	"FECHA_ASIGNA_NODE"=>'',	"USUARIO_ASIGNA_NODO"=>'',	"ESTADO_RUTA"=>'',	"NRO_CAJA"=>'',	"DIRECCION_STANDARIZADA"=>'',	"TMS_NOVEDADID"=>'',	"VALOR_DECLARADO"=>'',	"FECHA_ESTADO"=>'',	"USUARIO_ESTADO"=>'',	"ADICIONAL_3"=>'',	"ADICIONAL_4"=>'',	"AL"=>'');
             return $registro;
 
+        }
+
+        function EliminaGuia($nro_guia){
+            
+            $consulta="delete  from track where NRO_GUIA=:s_guia";
+            $resulset=$this->conexion_db->prepare($consulta);
+            $resulset->execute(array("s_guia"=>$nro_guia));
+            $resulset->closeCursor();
         }
 
 

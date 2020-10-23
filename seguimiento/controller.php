@@ -13,12 +13,16 @@
            $val=json_encode($registro);
            return $val;
         }else{
+
             $insDat->InsertaGuia($dataws);
             $registro=$insDat->ObtieneGuia($guia);
             $val=json_encode($registro);
-           return $val;
+            return $val;
         }
 }else{
+
+    $insDat->EliminaGuia($guia);
+    $insDat->InsertaGuia($dataws);
     $registro=$insDat->ObtieneGuia($guia);
     $val=json_encode($registro);
     return $val;
